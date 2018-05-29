@@ -5,7 +5,7 @@ import json
 
 email_url = "https://haveibeenpwned.com/api/v2/breachedaccount/{}"
 email_url_reduced= "https://haveibeenpwned.com/api/v2/breachedaccount/{}?truncateResponse=true"
-HEADER = "User-Agent: pytest-api-test-wsb"
+HEADER = {"User-Agent": "pytest-api-wsb", "From": "zan_email@gmail.com"}
 
 response_code = {
     200: "Ok — everything worked and there's a string array of pwned sites for the account",
@@ -65,10 +65,11 @@ def check_email_reduced():
 
 
 def test_email_finder(emails_finder):
-    print(emails_finder)
+    assert len(emails) > 0
 
 def test_email_in_breaches(check_email):
-    print(check_email)
+    assert response_code == 404 or response_code == 200
 
 def test_reduced_body_size(check_email_reduced):
     print(check_email_reduced)
+    time.sleep(2)
