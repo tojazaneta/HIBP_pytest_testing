@@ -1,7 +1,7 @@
 all_breaches = 'https://haveibeenpwned.com/api/v2/breaches'
 email_url = "https://haveibeenpwned.com/api/v2/breachedaccount/{}"
 email_url_reduced= "https://haveibeenpwned.com/api/v2/breachedaccount/{}?truncateResponse=true"
-headers = {'User-Agent ': 'pytest-api-testing-study-wsb', 'From ': 'zaneta.stanczak@gmail.com'}
+headers = {'User-Agent ': 'PWNGE-pytest-study-wsb', 'From ': 'zaneta.stanczak@gmail.com'}
 emails_pwned_file = "emails_pwned.txt"
 emails_clean_file = "emails_clean.txt"
 emails_file = "emails.txt"
