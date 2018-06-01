@@ -41,6 +41,7 @@ def test_email_finder(emails_finder):
     ("example@gmail.com, example@gmail.com", 404),
     ("idontlikespamletmebeemptyemail@gmail.com", 404),])
 
+@pytest.mark.skip(reason= " Error 503, can't connect to server.")
 def test_email_found_or_not_found(email_input, expected_status_code):
     r = requests.get(config.email_url.format(email_input), headers=config.headers)
     time.sleep(2)
@@ -51,3 +52,4 @@ def test_searching_in_the_breaches(searching_in_the_breaches):
     with pytest.raises(AssertionError) as assert_error:
         assert_error == 503 #404
         assert  searching_in_the_breaches == 200
+
