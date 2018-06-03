@@ -10,7 +10,7 @@ def connect_to_server():
 
 
 emails = []
-@pytest.fixture()
+@pytest.fixture(scope = 'session')
 def emails_finder():
     with open(config.emails_file, "r") as file:
         content = file.read().splitlines()
@@ -50,6 +50,6 @@ def test_email_found_or_not_found(email_input, expected_status_code):
 
 def test_searching_in_the_breaches(searching_in_the_breaches):
     with pytest.raises(AssertionError) as assert_error:
-        assert_error == 503 #404
+        assert_error == 404
         assert  searching_in_the_breaches == 200
 
