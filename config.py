@@ -1,6 +1,6 @@
 all_breaches = 'https://haveibeenpwned.com/api/v2/breaches'
 email_url = "https://haveibeenpwned.com/api/v2/breachedaccount/{}"
-headers = {'User-Agent ': 'PWNGE-pytest-study-wsb', 'From ': 'zaneta.stanczak@gmail.com'}
+headers = {'User-Agent ': 'PWNGE-pytest-test', 'From ': 'tojazaneta@github'}
 emails_file = "data/emails.txt"
 emails= []
 
