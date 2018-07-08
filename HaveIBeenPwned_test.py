@@ -2,7 +2,7 @@ import time
 import pytest
 import requests
 import config
-import os
+
 
 @pytest.fixture()
 def connect_to_server():
