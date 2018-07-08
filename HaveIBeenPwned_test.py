@@ -2,6 +2,7 @@ import time
 import pytest
 import requests
 import config
+import os
 
 @pytest.fixture()
 def connect_to_server():
@@ -19,6 +20,7 @@ def emails_finder():
         time.sleep(2)
         return emails
 
+
 @pytest.fixture()
 def searching_in_the_breaches(emails_finder):
     for mail in emails:
@@ -34,6 +36,7 @@ def test_connect_to_server(connect_to_server):
 
 def test_email_finder(emails_finder):
     assert len(emails_finder) > 0
+    print(emails)
 
 @pytest.mark.parametrize("email_input, expected_status_code", [
     ("example@gmail.com", 200),
@@ -50,6 +53,6 @@ def test_email_found_or_not_found(email_input, expected_status_code):
 
 def test_searching_in_the_breaches(searching_in_the_breaches):
     with pytest.raises(AssertionError) as assert_error:
-        assert_error == 404
+        assert_error==404
         assert  searching_in_the_breaches == 200
 
